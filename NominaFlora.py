@@ -19,9 +19,12 @@ class NominaFlora(object):
 
     def get_name(self):
         ''' Get a new flower name '''
-        return self.genus_builder.get_word()
+        genus = self.genus_builder.get_word()
+        species = self.species_builder.get_word()
+        return '%s %s' % (genus, species)
 
 
 if __name__ == '__main__':
     namer = NominaFlora()
-    print namer.get_name()
+    for _ in range(5):
+        print namer.get_name()

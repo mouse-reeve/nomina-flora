@@ -17,6 +17,7 @@ class WordBuilder(object):
         }
 
         self.average_word_length = 0
+        self.shortest = None
 
 
     def ingest(self, corpus_file):
@@ -24,12 +25,14 @@ class WordBuilder(object):
         corpus = open(corpus_file)
         total_letters = 0
         total_words = 0
+        shortest_word = 100
         for word in corpus.readlines():
             # clean word
             word = word.strip()
             word = re.sub(r'[\',\.\"]', '', word)
             total_letters += len(word)
             total_words += 1
+            shortest_word = len(word) if len(word) < shortest_word else shortest_word
 
             # iterate through n letter groups, where 1 <= n <= 3
             n = self.chunk_size
@@ -48,17 +51,21 @@ class WordBuilder(object):
             self.links[word[-n:]].append(self.terminal)
 
         self.average_word_length = total_letters / total_words
+        self.shortest = shortest_word
 
 
     def get_word(self, word=None):
         ''' creates a new word '''
         word = word if not word == None else self.initial
         if not self.terminal in word:
-            # TODO: this will break too early, should prolly be probabilistic
             if len(word) > self.average_word_length and \
-                    self.terminal in self.links[word[-self.chunk_size:]] and random.randint(0, 1):
-                word += self.terminal
+                    self.terminal in self.links[word[-self.chunk_size:]] \
+                    and random.randint(0, 1):
+                addon = self.terminal
             else:
-                word += random.choice(self.links[word[-self.chunk_size:]])
+                options = self.links[word[-self.chunk_size:]]
+                addon = random.choice(options)
+
+            word = word + addon
             return self.get_word(word)
         return word[1:-1]

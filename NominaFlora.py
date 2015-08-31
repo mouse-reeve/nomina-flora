@@ -53,5 +53,5 @@ class NominaFlora(object):
 
 if __name__ == '__main__':
     builder = NominaFlora()
-    builder.ingest('science.txt')
+    builder.ingest('flowers.txt')
     print builder.get_word()

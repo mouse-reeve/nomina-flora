@@ -56,7 +56,7 @@ class WordBuilder(object):
         if not self.terminal in word:
             # TODO: this will break too early, should prolly be probabilistic
             if len(word) > self.average_word_length and \
-                    self.terminal in self.links[word[-self.chunk_size:]]:
+                    self.terminal in self.links[word[-self.chunk_size:]] and random.randint(0, 1):
                 word += self.terminal
             else:
                 word += random.choice(self.links[word[-self.chunk_size:]])

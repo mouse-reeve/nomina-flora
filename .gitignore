@@ -1,4 +1,5 @@
 settings.py
+post_tweet.sh
 
 *.swp
 *.pyc

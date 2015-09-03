@@ -39,7 +39,7 @@ class NominaFlora(object):
     def get_common_name(self):
         ''' Get a flower's common name '''
         name = random.choice(self.common_first)
-        if random.randint(0, 2) == 1:
+        if random.randint(0, 1) == 1:
             name += ' ' + random.choice(self.common_first).lower()
         name += ' ' + random.choice(self.common_second).lower()
         return name

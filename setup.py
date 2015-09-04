@@ -10,7 +10,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
 
 setup(
     name='NominaFlora',
-    version='0.1.1',
+    version='0.1.3',
 
     description='Generates new flower names',
     long_description=long_description,
@@ -34,7 +34,8 @@ setup(
 
     keywords='generative language flowers',
 
-    packages=['nominaflora'],
+    packages=['nominaflora', 'nominaflora/data'],
+    include_package_data=True,
 
     install_requires=['wordbuilder']
 )

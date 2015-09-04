@@ -10,10 +10,10 @@ class NominaFlora(object):
 
     def __init__(self):
         self.chunk_size = 2
-        self.genus_builder = self.get_builder('%s/data/genus' % here)
-        self.species_builder = self.get_builder('%s/data/species' % here)
-        self.common_first = self.get_common('%s/data/common_first' % here)
-        self.common_second = self.get_common('%s/data/common_second' % here)
+        self.genus_builder = self.get_builder('%s/data/genus.txt' % here)
+        self.species_builder = self.get_builder('%s/data/species.txt' % here)
+        self.common_first = self.get_common('%s/data/common_first.txt' % here)
+        self.common_second = self.get_common('%s/data/common_second.txt' % here)
 
 
     def get_builder(self, corpus):

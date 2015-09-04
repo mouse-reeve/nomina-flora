@@ -34,7 +34,7 @@ setup(
 
     keywords='generative language flowers',
 
-    packages=['nominaflora', 'nominaflora/data'],
+    packages=['nominaflora'],
     include_package_data=True,
 
     install_requires=['wordbuilder']

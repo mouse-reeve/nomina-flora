@@ -1,6 +1,6 @@
 ''' Produce latin names for flowers '''
 import random
-from WordBuilder import WordBuilder
+from wordbuilder.WordBuilder import WordBuilder
 
 class NominaFlora(object):
     ''' Uses WordBuilder to create flower names '''

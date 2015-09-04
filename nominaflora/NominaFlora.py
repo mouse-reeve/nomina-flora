@@ -1,16 +1,19 @@
 ''' Produce latin names for flowers '''
 import random
 from wordbuilder.WordBuilder import WordBuilder
+from os import path
+
+here = path.abspath(path.dirname(__file__))
 
 class NominaFlora(object):
     ''' Uses WordBuilder to create flower names '''
 
     def __init__(self):
         self.chunk_size = 2
-        self.genus_builder = self.get_builder('genus')
-        self.species_builder = self.get_builder('species')
-        self.common_first = self.get_common('common_first')
-        self.common_second = self.get_common('common_second')
+        self.genus_builder = self.get_builder('%s/data/genus' % here)
+        self.species_builder = self.get_builder('%s/data/species' % here)
+        self.common_first = self.get_common('%s/data/common_first' % here)
+        self.common_second = self.get_common('%s/data/common_second' % here)
 
 
     def get_builder(self, corpus):

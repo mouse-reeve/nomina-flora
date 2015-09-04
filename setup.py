@@ -10,7 +10,7 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
 
 setup(
     name='NominaFlora',
-    version='0.1.4',
+    version='0.1.5',
 
     description='Generates new flower names',
     long_description=long_description,
